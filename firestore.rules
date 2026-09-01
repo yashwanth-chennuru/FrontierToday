@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Check if the requesting user is the designated administrator
+    // Replace 'YOUR_ADMIN_EMAIL@gmail.com' with your actual Google account email
+    function isAuthorizedAdmin() {
+      return request.auth != null && request.auth.token.email == 'YOUR_ADMIN_EMAIL@gmail.com';
+    }
+
+    // Frontier Releases: Anyone on the internet can view in real-time
+    // Only the authorized admin can create, edit, or delete
+    match /launches/{launchId} {
+      allow read: if true;
+      allow write: if isAuthorizedAdmin();
+    }
+    
+    // Frontier Labs & Custom Models
+    match /companies/{companyId} {
+      allow read: if true;
+      allow write: if isAuthorizedAdmin();
+    }
+  }
+}
