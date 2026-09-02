@@ -34,7 +34,8 @@ export const parseIsoDate = (iso: string): Date => {
   return new Date(year, month - 1, day);
 };
 
-export const getDayInfo = (iso: string, todayIso: string = '2026-09-01'): DayInfo => {
+export const getDayInfo = (iso: string, todayIso?: string): DayInfo => {
+  const currentToday = todayIso || formatIsoDate(new Date());
   const d = parseIsoDate(iso);
   const dayOfWeek = DAY_NAMES[d.getDay()];
   const monthName = MONTH_NAMES[d.getMonth()];
@@ -50,7 +51,7 @@ export const getDayInfo = (iso: string, todayIso: string = '2026-09-01'): DayInf
     year,
     dayOfWeek,
     fullDateLabel: `${monthName} ${dayNumber}`,
-    isToday: iso === todayIso,
+    isToday: iso === currentToday,
     isWeekend: d.getDay() === 0 || d.getDay() === 6,
   };
 };

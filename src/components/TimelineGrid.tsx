@@ -167,7 +167,7 @@ export const TimelineGrid: React.FC<TimelineGridProps> = ({
 
                 {/* Date Columns */}
                 {days.map((day) => {
-                  const isToday = day.iso === '2026-09-01' || day.isToday;
+                  const isToday = day.isToday;
                   return (
                     <th
                       key={day.iso}
@@ -181,8 +181,8 @@ export const TimelineGrid: React.FC<TimelineGridProps> = ({
                             {day.monthName} {day.dayNumber}
                           </span>
                           {isToday && (
-                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-black dark:bg-white text-white dark:text-black">
-                              SEP 1
+                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-black dark:bg-white text-white dark:text-black tracking-wider uppercase">
+                              TODAY
                             </span>
                           )}
                         </div>
@@ -297,7 +297,7 @@ export const TimelineGrid: React.FC<TimelineGridProps> = ({
           {/* Matrix Rows: Dates */}
           <tbody className="divide-y divide-black/[0.06] dark:divide-zinc-800/60">
             {days.map((day) => {
-              const isToday = day.iso === '2026-09-01' || day.isToday;
+              const isToday = day.isToday;
 
               return (
                 <tr
@@ -320,8 +320,8 @@ export const TimelineGrid: React.FC<TimelineGridProps> = ({
                           {day.monthName} {day.dayNumber}
                         </span>
                         {isToday && (
-                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-black dark:bg-white text-white dark:text-black">
-                            SEP 1
+                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-black dark:bg-white text-white dark:text-black tracking-wider uppercase">
+                            TODAY
                           </span>
                         )}
                       </div>
