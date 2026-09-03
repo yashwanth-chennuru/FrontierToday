@@ -57,6 +57,17 @@ export const INITIAL_COMPANIES: Company[] = [
     logoKey: 'xai',
   },
   {
+    id: 'microsoft',
+    name: 'Microsoft AI',
+    shortName: 'Microsoft',
+    tagline: 'Copilot, Phi-4 Small Models & MAI-1 Frontier Research',
+    brandColor: '#00A4EF',
+    accentColor: '#7FBA00',
+    country: 'USA',
+    website: 'https://microsoft.com/ai',
+    logoKey: 'microsoft',
+  },
+  {
     id: 'deepseek',
     name: 'DeepSeek',
     shortName: 'DeepSeek',

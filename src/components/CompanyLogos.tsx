@@ -60,6 +60,17 @@ export const XAILogo: React.FC<LogoProps> = ({ className = "w-6 h-6", size }) =>
   />
 );
 
+export const MicrosoftLogo: React.FC<LogoProps> = ({ className = "w-6 h-6", size }) => (
+  <img
+    src="/logos/microsoft.png"
+    alt="Microsoft AI"
+    className={`${className} object-contain select-none`}
+    style={size ? { width: size, height: size } : undefined}
+    loading="eager"
+    draggable={false}
+  />
+);
+
 export const DeepSeekLogo: React.FC<LogoProps> = ({ className = "w-6 h-6", size }) => (
   <img
     src="/logos/deepseek.png"
@@ -245,6 +256,11 @@ export const CompanyLogo: React.FC<{ logoKey: string; className?: string; size?:
     case 'grok':
     case 'cursor':
       return <XAILogo className={className} size={size} />;
+    case 'microsoft':
+    case 'microsoft ai':
+    case 'copilot':
+    case 'phi':
+      return <MicrosoftLogo className={className} size={size} />;
     case 'deepseek':
       return <DeepSeekLogo className={className} size={size} />;
     case 'minimax':
